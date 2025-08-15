@@ -1,0 +1,29 @@
+/* Clean Navigation Styles */
+
+/* Simple transitions only */
+.group:hover > div {
+  transform: translateY(0);
+}
+
+/* Remove heavy animations and effects */
+* {
+  transition-timing-function: ease;
+}
+
+/* Simple hover states */
+.group:hover .w-3 {
+  transform: rotate(180deg);
+}
+
+/* Clean shadows */
+.shadow-xl {
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Minimal responsive adjustments */
+@media (max-width: 1024px) {
+  .w-\[600px\] {
+    width: 90vw !important;
+    max-width: 500px !important;
+  }
+}

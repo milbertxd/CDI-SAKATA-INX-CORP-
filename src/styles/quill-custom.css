@@ -1,0 +1,134 @@
+/* Custom Quill Editor Styles for Professional Look */
+.ql-editor {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 300px;
+  padding: 20px;
+  background: #fafafa;
+}
+
+.ql-editor.ql-blank::before {
+  color: #999;
+  font-style: italic;
+}
+
+.ql-toolbar {
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  background: #f8f9fa;
+  padding: 12px;
+}
+
+.ql-container {
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.ql-toolbar .ql-formats {
+  margin-right: 15px;
+}
+
+.ql-toolbar button {
+  padding: 5px;
+  margin: 2px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.ql-toolbar button:hover {
+  background: #e9ecef;
+}
+
+.ql-toolbar button.ql-active {
+  background: #007bff;
+  color: white;
+}
+
+/* Custom styles for headers in editor */
+.ql-editor h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #1a365d;
+  margin: 1em 0 0.5em 0;
+  border-bottom: 3px solid #3182ce;
+  padding-bottom: 0.3em;
+}
+
+.ql-editor h2 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #2d3748;
+  margin: 0.8em 0 0.4em 0;
+}
+
+.ql-editor h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #2d3748;
+  margin: 0.6em 0 0.3em 0;
+}
+
+.ql-editor p {
+  margin: 1em 0;
+  text-align: justify;
+}
+
+.ql-editor strong {
+  font-weight: 700;
+  color: #1a365d;
+}
+
+.ql-editor em {
+  font-style: italic;
+  color: #4a5568;
+}
+
+.ql-editor ul, .ql-editor ol {
+  margin: 1em 0;
+  padding-left: 2em;
+}
+
+.ql-editor li {
+  margin: 0.5em 0;
+}
+
+.ql-editor blockquote {
+  border-left: 4px solid #3182ce;
+  padding-left: 1em;
+  margin: 1em 0;
+  background: #f7fafc;
+  font-style: italic;
+  color: #4a5568;
+}
+
+.ql-editor a {
+  color: #3182ce;
+  text-decoration: underline;
+}
+
+.ql-editor a:hover {
+  color: #2c5aa0;
+}
+
+/* Make the editor container responsive */
+.quill-container {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .ql-toolbar {
+    padding: 8px;
+  }
+  
+  .ql-toolbar .ql-formats {
+    margin-right: 8px;
+  }
+  
+  .ql-editor {
+    padding: 15px;
+    font-size: 14px;
+  }
+}
