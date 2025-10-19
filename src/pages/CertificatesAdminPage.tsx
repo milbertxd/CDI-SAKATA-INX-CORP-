@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Trash2, Edit, Plus, Save, X, Upload, Image as ImageIcon, Award, Eye, FileImage } from 'lucide-react';
-import { API_BASE_URL } from '../config/api';
+import { API_BASE_URL, getImageUrl } from '../config/api';
 
 interface Certificate {
   id: number;
@@ -68,7 +68,7 @@ const CertificatesAdminPage = () => {
     }
 
     try {
-      console.log('🌐 Making request to: http://localhost:5002/api/upload');
+      console.log('🌐 Making request to:', `${API_BASE_URL}/api/upload`);
 
       const response = await axios.post(`${API_BASE_URL}/api/upload`, formData, {
         headers: {
@@ -501,9 +501,7 @@ const CertificatesAdminPage = () => {
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex items-center gap-3">
                     <img
-                      src={certificate.logo_image.startsWith('/uploads/') 
-                        ? `http://localhost:5002${certificate.logo_image}` 
-                        : certificate.logo_image}
+                      src={getImageUrl(certificate.logo_image)}
                       alt={certificate.title}
                       className="h-12 w-12 object-contain rounded-lg border bg-white"
                       onError={(e) => {
@@ -615,12 +613,7 @@ const CertificatesAdminPage = () => {
                   </div>
                   
                   <button
-                    onClick={() => window.open(
-                      certificate.certificate_image.startsWith('/uploads/') 
-                        ? `http://localhost:5002${certificate.certificate_image}` 
-                        : certificate.certificate_image, 
-                      '_blank'
-                    )}
+                    onClick={() => window.open(getImageUrl(certificate.certificate_image), '_blank')}
                     className="p-2 text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
                     title="View certificate"
                   >

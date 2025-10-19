@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { API_ENDPOINTS } from '@/config/api';
 
 const CATEGORY_OPTIONS = [
   { value: 'Innovation', label: 'Innovation' },
@@ -59,10 +60,10 @@ const EditPost = ({ post, onClose, onUpdate }) => {
     
     console.log('🔥 Frontend: Submitting edit form with data:', formData);
     console.log('🔥 Frontend: Post ID:', post.id);
-    console.log('🔥 Frontend: API URL:', `http://localhost:5002/api/news/${post.id}`);
+    console.log('🔥 Frontend: API URL:', `${API_ENDPOINTS.NEWS}/${post.id}`);
     
     try {
-      const response = await axios.put(`http://localhost:5002/api/news/${post.id}`, formData);
+      const response = await axios.put(`${API_ENDPOINTS.NEWS}/${post.id}`, formData);
       console.log('✅ Frontend: Update successful!', response.data);
       alert('Post updated successfully!');
       onUpdate(); // Refresh posts

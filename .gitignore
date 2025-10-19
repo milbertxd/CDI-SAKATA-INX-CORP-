@@ -12,12 +12,17 @@ dist
 dist-ssr
 *.local
 
-# Environment variables
+# Environment variables (exclude actual .env files with real credentials)
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+
+# But keep template/example env files
+!.env.production
+!.env.development
+!backend/.env.production
 
 # Editor directories and files
 .vscode/*

@@ -3,9 +3,10 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const db = require('../db');
+require('dotenv').config();
 
-// JWT Secret (in production, use environment variable)
-const JWT_SECRET = 'your-super-secret-key-change-this-in-production';
+// JWT Secret from environment variables
+const JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-key-change-this-in-production';
 
 // 📍 Test route
 router.get('/test', (req, res) => {

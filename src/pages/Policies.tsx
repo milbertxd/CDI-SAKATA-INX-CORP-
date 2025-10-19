@@ -5,17 +5,14 @@ import {
   Leaf, 
   Heart, 
   ArrowLeft, 
-  FileText, 
   CheckCircle, 
-  Users,
   Award,
-  Globe,
-  Target,
   BookOpen,
   Download,
   ExternalLink,
   Calendar,
-  User
+  User,
+  Star
 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -43,29 +40,26 @@ const Policies = () => {
           
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Corporate Governance & Policies
+              Our Core Policies
             </h1>
             <p className="text-xl text-gray-200 leading-relaxed mb-8">
-              CDI SAKATA INX Corporation upholds the highest standards of corporate governance, environmental stewardship, and workplace excellence. Our comprehensive policy framework ensures sustainable operations and responsible business practices across all our global facilities.
+              CDI SAKATA INX Corporation upholds the highest standards through our comprehensive policy framework. 
+              Our three core policies ensure quality excellence, halal compliance, and safety in all our operations.
             </p>
             
-            {/* Key Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+            {/* Key Certifications */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400 mb-2">ISO 14001</div>
-                <div className="text-sm text-gray-300">Environmental Management</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-400 mb-2">ISO 45001</div>
-                <div className="text-sm text-gray-300">Occupational Health & Safety</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-purple-400 mb-2">ISO 9001</div>
+                <div className="text-3xl font-bold text-blue-400 mb-2">ISO 9001</div>
                 <div className="text-sm text-gray-300">Quality Management</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-orange-400 mb-2">GRI</div>
-                <div className="text-sm text-gray-300">Sustainability Reporting</div>
+                <div className="text-3xl font-bold text-green-400 mb-2">Halal Certified</div>
+                <div className="text-sm text-gray-300">Halal Compliance</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-orange-400 mb-2">SHE Standards</div>
+                <div className="text-sm text-gray-300">Safety, Health & Environment</div>
               </div>
             </div>
           </div>
@@ -78,11 +72,9 @@ const Policies = () => {
           <div className="flex space-x-8 overflow-x-auto">
             {[
               { id: 'overview', label: 'Policy Overview', icon: BookOpen },
-              { id: 'environmental', label: 'Environmental', icon: Leaf },
-              { id: 'safety', label: 'Health & Safety', icon: Heart },
-              { id: 'governance', label: 'Governance & Ethics', icon: Shield },
-              { id: 'quality', label: 'Quality Assurance', icon: Award },
-              { id: 'social', label: 'Social Responsibility', icon: Users }
+              { id: 'quality', label: 'Quality Policy', icon: Award },
+              { id: 'halal', label: 'Halal Policy', icon: Star },
+              { id: 'she', label: 'SHE Policy', icon: Shield }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -117,7 +109,9 @@ const Policies = () => {
                   <div className="flex-1">
                     <h2 className="text-3xl font-bold text-gray-900 mb-4">Corporate Policy Framework</h2>
                     <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                      CDI SAKATA INX Corporation operates under a comprehensive policy framework that reflects our commitment to excellence, sustainability, and stakeholder value creation. Our policies are regularly reviewed and updated to ensure compliance with international standards and best practices.
+                      CDI SAKATA INX Corporation operates under three core policies that reflect our commitment to 
+                      excellence, compliance, and safety. Our policies are regularly reviewed and updated to ensure 
+                      compliance with international standards and best practices.
                     </p>
                     
                     <div className="grid md:grid-cols-2 gap-6">
@@ -141,35 +135,28 @@ const Policies = () => {
               </div>
 
               {/* Policy Categories Grid */}
-              <div className="grid lg:grid-cols-2 gap-8">
+              <div className="grid lg:grid-cols-3 gap-8">
                 {[
                   {
-                    title: "Environmental Stewardship",
-                    icon: Leaf,
-                    color: "green",
-                    description: "Comprehensive environmental management system focusing on sustainable manufacturing, waste reduction, and carbon footprint minimization.",
-                    policies: ["Environmental Management Policy", "Waste Management Guidelines", "Energy Conservation Standards", "Water Resource Management"]
-                  },
-                  {
-                    title: "Health & Safety Excellence", 
-                    icon: Heart,
-                    color: "red",
-                    description: "Zero-harm workplace culture with robust safety protocols, employee wellness programs, and emergency preparedness systems.",
-                    policies: ["Occupational Health & Safety Policy", "Emergency Response Procedures", "Personal Protective Equipment Standards", "Incident Reporting Guidelines"]
-                  },
-                  {
-                    title: "Corporate Governance",
-                    icon: Shield,
-                    color: "blue", 
-                    description: "Ethical business conduct, transparent governance practices, and comprehensive compliance management across all operations.",
-                    policies: ["Code of Business Conduct", "Anti-Corruption Policy", "Data Privacy Protection", "Whistleblower Protection"]
-                  },
-                  {
-                    title: "Quality Assurance",
+                    title: "Quality Policy",
                     icon: Award,
                     color: "purple",
-                    description: "Continuous improvement culture with stringent quality controls, customer satisfaction focus, and innovation excellence.",
-                    policies: ["Quality Management System", "Product Safety Standards", "Supplier Quality Requirements", "Customer Satisfaction Metrics"]
+                    description: "Comprehensive quality management system ensuring product excellence and customer satisfaction through continuous improvement.",
+                    highlights: ["ISO 9001:2015 Certified", "99.8% Quality Rate", "Continuous Improvement", "Customer Focus"]
+                  },
+                  {
+                    title: "Halal Policy", 
+                    icon: Star,
+                    color: "green",
+                    description: "Strict halal compliance ensuring our products meet Islamic dietary requirements and certification standards.",
+                    highlights: ["Halal Certified Products", "Islamic Guidelines", "Certified Supply Chain", "Regular Audits"]
+                  },
+                  {
+                    title: "SHE Policy",
+                    icon: Shield,
+                    color: "blue", 
+                    description: "Safety, Health & Environment policy prioritizing zero harm workplace, environmental protection, and sustainable operations.",
+                    highlights: ["Zero Harm Target", "Environmental Protection", "Employee Wellness", "Sustainable Operations"]
                   }
                 ].map((category, index) => (
                   <div key={index} className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 hover:shadow-xl transition-shadow duration-300">
@@ -179,15 +166,15 @@ const Policies = () => {
                       </div>
                       <div>
                         <h3 className="text-xl font-bold text-gray-900 mb-2">{category.title}</h3>
-                        <p className="text-gray-600">{category.description}</p>
+                        <p className="text-gray-600 text-sm">{category.description}</p>
                       </div>
                     </div>
                     
                     <div className="space-y-2">
-                      {category.policies.map((policy, policyIndex) => (
-                        <div key={policyIndex} className="flex items-center space-x-2 text-sm text-gray-600">
+                      {category.highlights.map((highlight, highlightIndex) => (
+                        <div key={highlightIndex} className="flex items-center space-x-2 text-sm text-gray-600">
                           <CheckCircle className={`w-4 h-4 text-${category.color}-600`} />
-                          <span>{policy}</span>
+                          <span>{highlight}</span>
                         </div>
                       ))}
                     </div>
@@ -197,233 +184,7 @@ const Policies = () => {
             </div>
           )}
 
-          {/* Environmental Policy Tab */}
-          {activeTab === 'environmental' && (
-            <div className="space-y-12">
-              <div className="bg-white rounded-2xl shadow-lg p-8">
-                <div className="flex items-start space-x-6 mb-8">
-                  <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center">
-                    <Leaf className="w-8 h-8 text-green-600" />
-                  </div>
-                  <div>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Environmental Management Policy</h2>
-                    <p className="text-lg text-gray-600">
-                      CDI SAKATA INX is committed to environmental protection and sustainable development through responsible manufacturing practices and continuous improvement of our environmental performance.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Environmental Commitments */}
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Our Environmental Commitments</h3>
-                    <div className="space-y-4">
-                      {[
-                        "Achieve carbon neutrality by 2030 across all operations",
-                        "Reduce water consumption by 40% by 2027",
-                        "Implement circular economy principles in 100% of processes",
-                        "Zero waste to landfill certification for all facilities",
-                        "Renewable energy adoption target of 80% by 2026",
-                        "Sustainable raw material sourcing programs"
-                      ].map((commitment, index) => (
-                        <div key={index} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                          <p className="text-gray-600">{commitment}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Environmental Performance</h3>
-                    <div className="space-y-6">
-                      <div className="bg-green-50 rounded-lg p-4">
-                        <div className="text-2xl font-bold text-green-600">35%</div>
-                        <div className="text-sm text-gray-600">CO2 Reduction (2019-2023)</div>
-                      </div>
-                      <div className="bg-blue-50 rounded-lg p-4">
-                        <div className="text-2xl font-bold text-blue-600">50%</div>
-                        <div className="text-sm text-gray-600">Water Usage Reduction</div>
-                      </div>
-                      <div className="bg-orange-50 rounded-lg p-4">
-                        <div className="text-2xl font-bold text-orange-600">90%</div>
-                        <div className="text-sm text-gray-600">Waste Recycling Rate</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-gray-200">
-                  <div className="flex flex-wrap gap-4">
-                    <a href="/policies/CDI-SAKATA-Environmental-Policy-2024.pdf" download>
-                      <button className="bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-medium transition-colors flex items-center space-x-2">
-                        <Download className="w-4 h-4" />
-                        <span>Download Policy (PDF)</span>
-                      </button>
-                    </a>
-                    <a href="/sustainability-report-2023" target="_blank">
-                      <button className="bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-medium transition-colors flex items-center space-x-2">
-                        <ExternalLink className="w-4 h-4" />
-                        <span>View Sustainability Report</span>
-                      </button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Safety Policy Tab */}
-          {activeTab === 'safety' && (
-            <div className="space-y-12">
-              <div className="bg-white rounded-2xl shadow-lg p-8">
-                <div className="flex items-start space-x-6 mb-8">
-                  <div className="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center">
-                    <Heart className="w-8 h-8 text-red-600" />
-                  </div>
-                  <div>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Occupational Health & Safety Policy</h2>
-                    <p className="text-lg text-gray-600">
-                      The health and safety of our employees, contractors, and visitors is our highest priority. We are committed to providing a safe, healthy work environment through comprehensive risk management and continuous improvement.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Safety Excellence Standards</h3>
-                    <div className="space-y-4">
-                      {[
-                        "Zero workplace injuries - Target: Zero Lost Time Incidents",
-                        "Comprehensive safety training for 100% of employees",
-                        "Regular health surveillance and medical monitoring",
-                        "Emergency response drills conducted quarterly",
-                        "Personal protective equipment provided and maintained",
-                        "Ergonomic workplace design and hazard identification"
-                      ].map((standard, index) => (
-                        <div key={index} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
-                          <p className="text-gray-600">{standard}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Safety Performance Metrics</h3>
-                    <div className="space-y-6">
-                      <div className="bg-red-50 rounded-lg p-4">
-                        <div className="text-2xl font-bold text-red-600">0.12</div>
-                        <div className="text-sm text-gray-600">LTIFR (Lost Time Injury Frequency Rate)</div>
-                      </div>
-                      <div className="bg-orange-50 rounded-lg p-4">
-                        <div className="text-2xl font-bold text-orange-600">100%</div>
-                        <div className="text-sm text-gray-600">Safety Training Completion</div>
-                      </div>
-                      <div className="bg-green-50 rounded-lg p-4">
-                        <div className="text-2xl font-bold text-green-600">365</div>
-                        <div className="text-sm text-gray-600">Days without LTI (Current Record)</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-gray-200">
-                  <div className="flex flex-wrap gap-4">
-                    <a href="/policies/CDI-SAKATA-Safety-Policy-2024.pdf" download>
-                      <button className="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-medium transition-colors flex items-center space-x-2">
-                        <Download className="w-4 h-4" />
-                        <span>Download Safety Policy</span>
-                      </button>
-                    </a>
-                    <a href="/safety-manual-2024" target="_blank">
-                      <button className="bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-medium transition-colors flex items-center space-x-2">
-                        <ExternalLink className="w-4 h-4" />
-                        <span>Safety Manual</span>
-                      </button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Governance Tab */}
-          {activeTab === 'governance' && (
-            <div className="space-y-12">
-              <div className="bg-white rounded-2xl shadow-lg p-8">
-                <div className="flex items-start space-x-6 mb-8">
-                  <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center">
-                    <Shield className="w-8 h-8 text-blue-600" />
-                  </div>
-                  <div>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Corporate Governance & Ethics</h2>
-                    <p className="text-lg text-gray-600">
-                      CDI SAKATA INX maintains the highest standards of corporate governance, business ethics, and regulatory compliance across all our operations worldwide.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Governance Principles</h3>
-                    <div className="space-y-4">
-                      {[
-                        "Transparent and accountable decision-making processes",
-                        "Independent board oversight and audit committees",
-                        "Comprehensive risk management framework",
-                        "Anti-corruption and anti-bribery measures",
-                        "Data privacy and information security protocols",
-                        "Whistleblower protection and reporting mechanisms"
-                      ].map((principle, index) => (
-                        <div key={index} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                          <p className="text-gray-600">{principle}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Compliance Framework</h3>
-                    <div className="space-y-4">
-                      <div className="bg-blue-50 rounded-lg p-4">
-                        <h4 className="font-semibold text-blue-900 mb-2">Code of Business Conduct</h4>
-                        <p className="text-sm text-gray-600">Comprehensive guidelines for ethical business practices</p>
-                      </div>
-                      <div className="bg-green-50 rounded-lg p-4">
-                        <h4 className="font-semibold text-green-900 mb-2">Regulatory Compliance</h4>
-                        <p className="text-sm text-gray-600">100% compliance with local and international regulations</p>
-                      </div>
-                      <div className="bg-purple-50 rounded-lg p-4">
-                        <h4 className="font-semibant text-purple-900 mb-2">Audit & Monitoring</h4>
-                        <p className="text-sm text-gray-600">Regular internal and external audits</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-gray-200">
-                  <div className="flex flex-wrap gap-4">
-                    <a href="/policies/CDI-SAKATA-Code-of-Conduct-2024.pdf" download>
-                      <button className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-colors flex items-center space-x-2">
-                        <Download className="w-4 h-4" />
-                        <span>Code of Conduct</span>
-                      </button>
-                    </a>
-                    <a href="/governance-report-2023" target="_blank">
-                      <button className="bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-medium transition-colors flex items-center space-x-2">
-                        <ExternalLink className="w-4 h-4" />
-                        <span>Governance Report</span>
-                      </button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Quality Tab */}
+          {/* Quality Policy Tab */}
           {activeTab === 'quality' && (
             <div className="space-y-12">
               <div className="bg-white rounded-2xl shadow-lg p-8">
@@ -432,9 +193,10 @@ const Policies = () => {
                     <Award className="w-8 h-8 text-purple-600" />
                   </div>
                   <div>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Quality Management System</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Quality Management Policy</h2>
                     <p className="text-lg text-gray-600">
-                      Our commitment to quality excellence drives continuous improvement in all aspects of our operations, from raw material sourcing to final product delivery.
+                      Our commitment to quality excellence drives continuous improvement in all aspects of our operations, 
+                      from raw material sourcing to final product delivery.
                     </p>
                   </div>
                 </div>
@@ -483,7 +245,7 @@ const Policies = () => {
                     <a href="/policies/CDI-SAKATA-Quality-Policy-2024.pdf" download>
                       <button className="bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-lg font-medium transition-colors flex items-center space-x-2">
                         <Download className="w-4 h-4" />
-                        <span>Quality Policy</span>
+                        <span>Download Quality Policy</span>
                       </button>
                     </a>
                     <a href="/quality-certifications" target="_blank">
@@ -498,56 +260,57 @@ const Policies = () => {
             </div>
           )}
 
-          {/* Social Responsibility Tab */}
-          {activeTab === 'social' && (
+          {/* Halal Policy Tab */}
+          {activeTab === 'halal' && (
             <div className="space-y-12">
               <div className="bg-white rounded-2xl shadow-lg p-8">
                 <div className="flex items-start space-x-6 mb-8">
-                  <div className="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center">
-                    <Users className="w-8 h-8 text-orange-600" />
+                  <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center">
+                    <Star className="w-8 h-8 text-green-600" />
                   </div>
                   <div>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Social Responsibility & Community Engagement</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Halal Compliance Policy</h2>
                     <p className="text-lg text-gray-600">
-                      We believe in creating positive impact in the communities where we operate through employee development, community investment, and social responsibility initiatives.
+                      CDI SAKATA INX is committed to producing halal-certified products that comply with Islamic 
+                      dietary laws and regulations, ensuring our Muslim customers can trust our products.
                     </p>
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Social Commitments</h3>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Halal Compliance Standards</h3>
                     <div className="space-y-4">
                       {[
-                        "Diversity, equity, and inclusion in hiring and promotion",
-                        "Employee development and training programs",
-                        "Community investment and local partnerships",
-                        "Educational support and scholarship programs",
-                        "Healthcare and wellness initiatives for employees",
-                        "Support for local suppliers and businesses"
-                      ].map((commitment, index) => (
+                        "Halal certification from recognized Islamic bodies",
+                        "Strict ingredient sourcing and verification",
+                        "Dedicated halal production lines and processes",
+                        "Regular halal audits and inspections",
+                        "Employee training on halal requirements",
+                        "Supply chain halal integrity management"
+                      ].map((standard, index) => (
                         <div key={index} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
-                          <p className="text-gray-600">{commitment}</p>
+                          <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                          <p className="text-gray-600">{standard}</p>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Community Impact</h3>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Halal Certifications</h3>
                     <div className="space-y-6">
-                      <div className="bg-orange-50 rounded-lg p-4">
-                        <div className="text-2xl font-bold text-orange-600">2,500+</div>
-                        <div className="text-sm text-gray-600">Employees Worldwide</div>
-                      </div>
                       <div className="bg-green-50 rounded-lg p-4">
-                        <div className="text-2xl font-bold text-green-600">₱5M+</div>
-                        <div className="text-sm text-gray-600">Annual Community Investment</div>
+                        <div className="text-lg font-bold text-green-600">100%</div>
+                        <div className="text-sm text-gray-600">Halal Certified Product Lines</div>
                       </div>
                       <div className="bg-blue-50 rounded-lg p-4">
-                        <div className="text-2xl font-bold text-blue-600">15</div>
-                        <div className="text-sm text-gray-600">Local Community Programs</div>
+                        <div className="text-lg font-bold text-blue-600">Annual</div>
+                        <div className="text-sm text-gray-600">Halal Compliance Audits</div>
+                      </div>
+                      <div className="bg-purple-50 rounded-lg p-4">
+                        <div className="text-lg font-bold text-purple-600">Certified</div>
+                        <div className="text-sm text-gray-600">Supply Chain Partners</div>
                       </div>
                     </div>
                   </div>
@@ -555,16 +318,92 @@ const Policies = () => {
 
                 <div className="mt-8 pt-6 border-t border-gray-200">
                   <div className="flex flex-wrap gap-4">
-                    <a href="/policies/CDI-SAKATA-CSR-Policy-2024.pdf" download>
-                      <button className="bg-orange-600 hover:bg-orange-700 text-white py-3 px-6 rounded-lg font-medium transition-colors flex items-center space-x-2">
+                    <a href="/policies/CDI-SAKATA-Halal-Policy-2024.pdf" download>
+                      <button className="bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-medium transition-colors flex items-center space-x-2">
                         <Download className="w-4 h-4" />
-                        <span>CSR Policy</span>
+                        <span>Download Halal Policy</span>
                       </button>
                     </a>
-                    <a href="/community-programs" target="_blank">
+                    <a href="/halal-certificates" target="_blank">
                       <button className="bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-medium transition-colors flex items-center space-x-2">
                         <ExternalLink className="w-4 h-4" />
-                        <span>Community Programs</span>
+                        <span>View Halal Certificates</span>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* SHE Policy Tab */}
+          {activeTab === 'she' && (
+            <div className="space-y-12">
+              <div className="bg-white rounded-2xl shadow-lg p-8">
+                <div className="flex items-start space-x-6 mb-8">
+                  <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center">
+                    <Shield className="w-8 h-8 text-blue-600" />
+                  </div>
+                  <div>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Safety, Health & Environment (SHE) Policy</h2>
+                    <p className="text-lg text-gray-600">
+                      The safety and health of our employees and environmental protection are our highest priorities. 
+                      We are committed to zero harm and sustainable operations.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">SHE Commitments</h3>
+                    <div className="space-y-4">
+                      {[
+                        "Zero workplace injuries and incidents",
+                        "Environmental protection and conservation",
+                        "Comprehensive safety training programs",
+                        "Emergency response and preparedness",
+                        "Occupational health and wellness programs",
+                        "Sustainable manufacturing practices"
+                      ].map((commitment, index) => (
+                        <div key={index} className="flex items-start space-x-3">
+                          <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                          <p className="text-gray-600">{commitment}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">SHE Performance</h3>
+                    <div className="space-y-6">
+                      <div className="bg-blue-50 rounded-lg p-4">
+                        <div className="text-2xl font-bold text-blue-600">0</div>
+                        <div className="text-sm text-gray-600">Lost Time Injuries (2023)</div>
+                      </div>
+                      <div className="bg-green-50 rounded-lg p-4">
+                        <div className="text-2xl font-bold text-green-600">100%</div>
+                        <div className="text-sm text-gray-600">Safety Training Completion</div>
+                      </div>
+                      <div className="bg-purple-50 rounded-lg p-4">
+                        <div className="text-2xl font-bold text-purple-600">365+</div>
+                        <div className="text-sm text-gray-600">Days Without Incident</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-gray-200">
+                  <div className="flex flex-wrap gap-4">
+                    <a href="/policies/CDI-SAKATA-SHE-Policy-2024.pdf" download>
+                      <button className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-colors flex items-center space-x-2">
+                        <Download className="w-4 h-4" />
+                        <span>Download SHE Policy</span>
+                      </button>
+                    </a>
+                    <a href="/safety-manual" target="_blank">
+                      <button className="bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-medium transition-colors flex items-center space-x-2">
+                        <ExternalLink className="w-4 h-4" />
+                        <span>Safety Manual</span>
                       </button>
                     </a>
                   </div>
@@ -574,6 +413,8 @@ const Policies = () => {
           )}
         </div>
       </section>
+
+      {/* Commitment Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">
@@ -581,22 +422,22 @@ const Policies = () => {
               Our Commitment to Excellence
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              These policies form the foundation of our corporate responsibility and guide every decision we make. 
-              We believe that sustainable business practices, employee safety, and ethical governance are not just 
-              obligations, but opportunities to create lasting positive impact.
+              These three core policies form the foundation of our operations and guide every decision we make. 
+              We believe that quality, compliance, and safety are not just requirements, but opportunities to 
+              create lasting positive impact for our customers, employees, and communities.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="bg-gray-50 border border-gray-200 rounded-lg px-6 py-3">
-                <span className="text-gray-900 font-semibold">ISO 14001</span>
-                <span className="text-gray-600 ml-2">Environmental</span>
+                <span className="text-gray-900 font-semibold">ISO 9001</span>
+                <span className="text-gray-600 ml-2">Quality</span>
               </div>
               <div className="bg-gray-50 border border-gray-200 rounded-lg px-6 py-3">
-                <span className="text-gray-900 font-semibold">ISO 45001</span>
-                <span className="text-gray-600 ml-2">Safety</span>
+                <span className="text-gray-900 font-semibold">Halal Certified</span>
+                <span className="text-gray-600 ml-2">Compliance</span>
               </div>
               <div className="bg-gray-50 border border-gray-200 rounded-lg px-6 py-3">
-                <span className="text-gray-900 font-semibold">GRI Standards</span>
-                <span className="text-gray-600 ml-2">ESG Reporting</span>
+                <span className="text-gray-900 font-semibold">SHE Standards</span>
+                <span className="text-gray-600 ml-2">Safety & Environment</span>
               </div>
             </div>
           </div>

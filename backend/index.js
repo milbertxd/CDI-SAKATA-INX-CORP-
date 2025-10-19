@@ -4,30 +4,44 @@ const mysql = require('mysql2');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { setupCertificatesTable } = require('./setup-certificates');
+require('dotenv').config();
 
 const app = express();
-const PORT = 5001; // Changed from 5000 due to port conflicts
+const PORT = process.env.PORT || 5002;
 
-// JWT Secret (in production, use environment variable)
-const JWT_SECRET = 'your-super-secret-key-change-this-in-production';
+// JWT Secret from environment variables
+const JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-key-change-this-in-production';
 
-app.use(cors());
+// CORS configuration
+const corsOptions = {
+  origin: process.env.CORS_ORIGIN || 'http://localhost:8080',
+  credentials: true
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
-console.log('🚀 Starting unified server...');
+if (process.env.NODE_ENV !== 'production') {
+  console.log('🚀 Starting unified server...');
+}
 
-// MySQL connection
+// MySQL connection using environment variables
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',       
-  password: '',       
-  database: 'db_news' 
+  host: process.env.DB_HOST || 'localhost',
+  user: process.env.DB_USER || 'root',       
+  password: process.env.DB_PASSWORD || '',       
+  database: process.env.DB_NAME || 'db_news' 
 });
 
 // Test connection
 db.connect(err => {
-  if (err) throw err;
-  console.log('✅ Connected to MySQL');
+  if (err) {
+    console.error('❌ Failed to connect to MySQL:', err.message);
+    process.exit(1);
+  }
+  if (process.env.NODE_ENV !== 'production') {
+    console.log('✅ Connected to MySQL');
+  }
   
   // Setup certificates table
   setupCertificatesTable();

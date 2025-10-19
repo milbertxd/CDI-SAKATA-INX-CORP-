@@ -2,11 +2,40 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const db = require('./db');
+require('dotenv').config();
 
 const app = express();
-const PORT = 5002; // Changed to avoid conflict
+const PORT = process.env.PORT || 5002;
 
-app.use(cors());
+// CORS configuration - Allow multiple origins in development
+const allowedOrigins = [
+  'http://localhost:8080',
+  'http://127.0.0.1:8080',
+  process.env.CORS_ORIGIN
+].filter(Boolean);
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps, Postman, etc.)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      // In development, be more permissive
+      if (process.env.NODE_ENV !== 'production') {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Serve static files from uploads directory
@@ -16,10 +45,13 @@ app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 app.use(express.static(path.join(__dirname, '../public')));
 
 // Log static file setup
-console.log('📁 Static files from:', path.join(__dirname, 'public/uploads'));
-console.log('📁 Public files from:', path.join(__dirname, '../public'));
-
-console.log('🚀 Starting server with router structure...');
+if (process.env.NODE_ENV !== 'production') {
+  console.log('📁 Static files from:', path.join(__dirname, 'public/uploads'));
+  console.log('📁 Public files from:', path.join(__dirname, '../public'));
+  console.log('🚀 Starting server with router structure...');
+  console.log('🔐 CORS allowed origins:', allowedOrigins);
+  console.log('🌍 Environment:', process.env.NODE_ENV || 'development');
+}
 
 // Setup tables when server starts
 const { setupCertificatesTable } = require('./setup-certificates');
